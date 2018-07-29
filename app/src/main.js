@@ -38,7 +38,7 @@ new Vue({
           note: ''
         },
         {
-          id: 2,
+          id: 3,
           tipo: 'gatto',
           proprietario: 'Mario Rossi',
           data: '13 maggio 2018',

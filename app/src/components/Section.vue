@@ -225,7 +225,52 @@ $break-large: 1024px;
 
   .section {
 
+    &__list {
+        ul {
+          li {
+          width: 623px;
+          height: 52px;
+          min-height: 52px;
+          flex-direction: row;
+          align-items: center;
+          > picture {
+              width: 47px;
+              height: 62px;
+          }
+          > span {
+              padding-left: 50px;
+              padding-top: 0px;
+              width: auto;
+              flex: 1 1 200px;
+          }
+          > h3 {
+              padding-left: 20px;
+              padding: 0px;
+              flex: 1 1 500px;
+              text-align: center;
+          }
+          > div {
+              padding-left: 20px;
+              padding: 0px;
+              width: auto;
+              flex: 1 1 550px;
+              text-align: center;
+          }
+          > strong {
+              border-top: none;
+              border-left: thin solid #6c6d8c;
+              margin-top: 0px;
+              padding-top: 0px;
+              font-weight: bold;
+              flex: 1 1 476px;
+          }
+          > a {
+              width: auto;
+          }
+          }
+        }
 
+    }
 
   }
 
