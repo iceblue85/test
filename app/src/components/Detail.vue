@@ -221,18 +221,20 @@ width: 100px;
           > picture {
               width: 47px;
               height: 62px;
+              top: -50px;
           }
           > span {
-              padding-left: 50px;
               padding-top: 0px;
               width: auto;
               flex: 1 1 200px;
+                  padding-left: 0;
           }
           > h3 {
               padding-left: 20px;
               padding: 0px;
               flex: 1 1 500px;
               text-align: center;
+              flex: 1 1 50%;
           }
           > div {
               padding-left: 20px;
