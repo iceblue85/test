@@ -1,21 +1,13 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="http://chat.vuejs.org/" target="_blank" rel="noopener">Vue Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="noopener">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+
+    <section class="home__info">
+      <h1>{{ title }}</h1>
+      <h2>{{description}}</h2>
+    </section>
+
+
+
   </div>
 </template>
 
@@ -24,7 +16,8 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js PWA'
+      title: 'Clinica Veterinaria',
+      description: 'Controllo degli animali'
     }
   }
 }
@@ -33,10 +26,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 
+$break-small: 320px;
+$break-large: 1024px;
+
 .home {
 
   h1, h2 {
-    font-weight: normal;
+    font-weight: bold;
   }
 
   ul {
@@ -53,7 +49,36 @@ export default {
     color: #35495E;
   }
 
+  &__info {
+    height: 60px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      color:  #ffffff;
+      font-size: 35.79px;/* Approssimazione dovuta alla sostituzione dei font */
+      font-weight: 100;
+      text-align: center;
+      margin:0px;
+    }
+    h2 {
+      color:  #ffffff;
+      font-size: 14.79px;/* Approssimazione dovuta alla sostituzione dei font */
+      font-weight: 100;
+      text-align: center;
+      margin:0px;
+    }
+
+  }
+
 }
 
+ @media screen and (min-width: $break-large) {
+
+
+
+ }
 
 </style>
