@@ -6,6 +6,32 @@
       <h2>{{description}}</h2>
     </section>
 
+    <section class="home__box">
+
+      <ul>
+        <li v-for="item in mainMenu" v-bind:key="item.title">
+          <picture>
+            <source media="(min-width: 1024px)" :srcset="item.img">
+            <img :src="item.img" :alt="item.title">
+          </picture>
+          <h3>{{item.title}}</h3>
+          <!--<a href="#">vedi lista </a> -->
+          <router-link :to="{ name: 'Dettaglio', params: { filter: item.link } }" >  vedi lista </router-link>
+        </li>
+
+      </ul>
+
+    </section>
+
+    <section class="home__additional">
+
+      <ul>
+        <li>
+
+        </li>
+      </ul>
+
+    </section>
 
 
   </div>
@@ -17,7 +43,21 @@ export default {
   data () {
     return {
       title: 'Clinica Veterinaria',
-      description: 'Controllo degli animali'
+      description: 'Controllo degli animali',
+      animals: this.$root.$data.animals,
+      additional: this.$root.$data.additional,
+      mainMenu: [
+        {
+          img: '../static/img/in-visita.svg',
+          title: 'Animali in visita',
+          link: 'invisita'
+        },
+        {
+          img: '../static/img/visitati.svg',
+          title: 'Animali visitati',
+          link: 'visitati'
+        }
+      ]
     }
   }
 }
@@ -71,6 +111,52 @@ $break-large: 1024px;
       margin:0px;
     }
 
+  }
+  &__box {
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 0;
+      li {
+      border-radius: 5px;
+      background-color:  #ffffff;
+      min-width: 248px;
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      height: 201px;
+      box-shadow: 0px 9px 22.56px 1.44px rgba(0, 0, 0, 0.17);
+      overflow: hidden;
+        > picture {
+            height: 111px;
+            overflow: hidden;
+          > img {
+            width: 100%;
+            height: 230%;
+            object-fit: cover;
+          }
+        }
+        > h3 {
+        color:  #6c6d8c;
+        font-size: 27.79px;/* Approssimazione dovuta alla sostituzione dei font */
+        font-weight: normal;
+        text-align: center;
+        }
+        > a {
+          background-color:  #f5f9fc;
+          width: 100%;
+          height: 43px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color:  #8b97f0;
+          font-size: 13.79px;/* Approssimazione dovuta alla sostituzione dei font */
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+    }
   }
 
 }

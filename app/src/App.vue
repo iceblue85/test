@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <img src="./assets/logo.svg" alt="Vue.js PWA" class="header__logo">
+      <img src="./assets/logo.svg" alt="Clinica veterinaria" class="header__logo">
 
       <span class="header__menu">
         {{header}}

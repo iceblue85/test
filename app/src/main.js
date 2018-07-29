@@ -11,5 +11,41 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  data:
+    {
+      animals: [
+        {
+          tipo: 'cane',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'labirintite',
+          visitato: false,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          tipo: 'cane',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'labirintite',
+          visitato: true,
+          diagnosi: '',
+          note: ''
+        }
+      ],
+      additional: [
+        {
+          title: 'Some additional info',
+          description: 'Lorem ipsum dolor sit amet'
+        },
+        {
+          title: 'Some additional info',
+          description: 'Lorem ipsum dolor sit amet'
+        }
+      ]
+    }
+
 })
