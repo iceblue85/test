@@ -16,6 +16,7 @@ new Vue({
     {
       animals: [
         {
+          id: 1,
           tipo: 'cane',
           proprietario: 'Mario Rossi',
           data: '13 maggio 2018',
@@ -26,12 +27,24 @@ new Vue({
           note: ''
         },
         {
-          tipo: 'cane',
+          id: 2,
+          tipo: 'gatto',
           proprietario: 'Mario Rossi',
           data: '13 maggio 2018',
           ora: '18:00',
-          motivo: 'labirintite',
+          motivo: 'infarto',
           visitato: true,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 2,
+          tipo: 'gatto',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: false,
           diagnosi: '',
           note: ''
         }

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="changeMain">
     <header>
       <img src="./assets/logo.svg" alt="Clinica veterinaria" class="header__logo">
 
@@ -24,8 +24,26 @@ export default {
   name: 'app',
   data () {
     return {
+      changeMain: 'Home',
       header: 'Support',
       footer: '® Clinica Veterinaria'
+    }
+  },
+  watch: {
+    $route (to, from) {
+      console.log('cosa restituisci: ', to, from)
+
+      if (to.name === 'Home') {
+        this.changeMain = 'Home'
+      } else if (to.name === 'Section') {
+        if (to.params.filter === 'visitati') {
+          this.changeMain = 'Section Visitati'
+        } else {
+          this.changeMain = 'Section InVisita'
+        }
+      } else {
+        this.changeMain = 'Home'
+      }
     }
   }
 }
@@ -39,10 +57,9 @@ $break-large: 1024px;
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-image: url('assets/bg-header.svg');
-  background-repeat: no-repeat;
-  background-position: left top;
-
+ * {
+   box-sizing: border-box;
+ }
 }
 
 #app {
@@ -50,6 +67,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  background-image: url('assets/bg-header.svg');
+  background-repeat: no-repeat;
+  background-position: left top;
+  min-height: 100vh;
+  &.Section.InVisita {
+  background-image: url('assets/bg-section.png');
+    background-position: center top;
+  }
 }
 
 main {
@@ -106,7 +131,7 @@ left: 0px;
 
  @media screen and (min-width: $break-large) {
 
-   body {
+   #app {
     background-position: center -200px;
     background-size: 100% 700px;
    }

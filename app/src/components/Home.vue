@@ -15,7 +15,6 @@
             <img :src="item.img" :alt="item.title">
           </picture>
           <h3>{{item.title}}</h3>
-          <!--<a href="#">vedi lista </a> -->
           <router-link :to="{ name: 'Section', params: { filter: item.link } }" >  vedi lista </router-link>
         </li>
 
