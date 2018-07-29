@@ -1,4 +1,5 @@
 <template>
+
   <div id="app" :class="changeMain">
     <header>
       <img src="./assets/logo.svg" alt="Clinica veterinaria" class="header__logo">
@@ -9,14 +10,16 @@
     </header>
     <main>
 
-
+    <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
+      </transition>
     </main>
 
     <footer>
       <span>{{footer}}</span>
     </footer>
   </div>
+
 </template>
 
 <script>
@@ -37,7 +40,7 @@ export default {
         this.changeMain = 'Home'
       } else if (to.name === 'Section') {
         if (to.params.filter === 'visitati') {
-          this.changeMain = 'Section Visitati'
+          this.changeMain = 'Section InVisita'
         } else {
           this.changeMain = 'Section InVisita'
         }
@@ -69,7 +72,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  background-image: url('assets/bg-header.svg');
+  background-image: url('assets/bg-header.png');
   background-repeat: no-repeat;
   background-position: left top;
   min-height: 100vh;
@@ -83,6 +86,42 @@ body {
   }
 }
 
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 main {
   text-align: center;
   margin-top: 40px;
@@ -134,6 +173,8 @@ position: fixed;
 bottom: 0px;
 left: 0px;
 }
+
+
 
  @media screen and (min-width: $break-large) {
 

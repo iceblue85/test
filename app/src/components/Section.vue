@@ -266,6 +266,8 @@ $break-large: 1024px;
           }
           > a {
               width: auto;
+              margin-top: 0;
+              height: 100%;
           }
           }
         }
