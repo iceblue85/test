@@ -2,6 +2,8 @@
 
 > test project
 
+need git and nodejs installed on computer
+
 ## Build Setup
 
 ``` bash
