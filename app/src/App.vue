@@ -55,6 +55,7 @@ body {
 main {
   text-align: center;
   margin-top: 40px;
+  padding-bottom: 100px;
 }
 
 header {
@@ -105,7 +106,10 @@ left: 0px;
 
  @media screen and (min-width: $break-large) {
 
-
+   body {
+    background-position: center -200px;
+    background-size: 100% 700px;
+   }
 
  }
 

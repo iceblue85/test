@@ -16,7 +16,7 @@
           </picture>
           <h3>{{item.title}}</h3>
           <!--<a href="#">vedi lista </a> -->
-          <router-link :to="{ name: 'Dettaglio', params: { filter: item.link } }" >  vedi lista </router-link>
+          <router-link :to="{ name: 'Section', params: { filter: item.link } }" >  vedi lista </router-link>
         </li>
 
       </ul>
@@ -26,8 +26,9 @@
     <section class="home__additional">
 
       <ul>
-        <li>
-
+        <li v-for="item in additional" v-bind:key="item.title">
+          <h4>{{item.title}}</h4>
+          <p>{{item.description}}</p>
         </li>
       </ul>
 
@@ -50,7 +51,7 @@ export default {
         {
           img: '../static/img/in-visita.svg',
           title: 'Animali in visita',
-          link: 'invisita'
+          link: 'in-visita'
         },
         {
           img: '../static/img/visitati.svg',
@@ -155,15 +156,67 @@ $break-large: 1024px;
           font-weight: bold;
           text-decoration: none;
         }
+        &:not(:last-of-type) {
+          margin-bottom:22px;
+        }
       }
     }
   }
+    &__additional {
+      @extend .home__box;
+      ul {
+        padding: 0px;
+        li {
+          height: auto;
+          background:transparent;
+          box-shadow: none;
+          border-radius: 0;
+          > p {
+            margin:0px;
+          }
+          &:not(:last-of-type) {
+            padding-bottom: 20px;
+            border-bottom:thin solid #6c6d8c;
+          }
+        }
+      }
+    }
 
 }
 
  @media screen and (min-width: $break-large) {
 
+  .home {
 
+    &__box {
+      display: flex;
+      justify-content: center;
+      ul {
+        max-width: 532px;
+        flex-direction: row;
+        justify-content: center;
+        li {
+          &:not(:last-of-type) {
+          margin-bottom:0px;
+          }
+
+        }
+      }
+    }
+    &__additional {
+      ul {
+        li {
+          &:not(:last-of-type) {
+            padding-bottom: 0;
+            border-bottom:none;
+          }
+        }
+      }
+
+    }
+
+
+  }
 
  }
 
