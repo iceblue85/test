@@ -41,6 +41,8 @@ export default {
         } else {
           this.changeMain = 'Section InVisita'
         }
+      } else if (to.name === 'Detail') {
+        this.changeMain = 'Detail'
       } else {
         this.changeMain = 'Home'
       }
@@ -73,6 +75,10 @@ body {
   min-height: 100vh;
   &.Section.InVisita {
   background-image: url('assets/bg-section.png');
+    background-position: center top;
+  }
+  &.Detail {
+  background-image: url('assets/bg-simple.png');
     background-position: center top;
   }
 }

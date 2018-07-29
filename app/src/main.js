@@ -34,8 +34,8 @@ new Vue({
           ora: '18:00',
           motivo: 'infarto',
           visitato: true,
-          diagnosi: '',
-          note: ''
+          diagnosi: 'sistemato',
+          note: 'non ci sono note da visualizzare'
         },
         {
           id: 3,

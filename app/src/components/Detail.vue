@@ -1,14 +1,9 @@
 <template>
-  <div class="section">
+  <div class="detail">
+    <section v-for="item in animals" v-bind:key="item.id" class="detail__info" v-if="detailID == item.id">
+        <h1>{{ item.tipo }}</h1>
 
-    <section class="section__info">
-      <h1>{{ title }}</h1>
-    </section>
-
-    <section class="section__list">
-
-      <ul>
-        <li v-for="item in animals" v-bind:key="item.id" v-if="filter === 'in-visita' && !item.visitato">
+        <div class="detail__info__box">
           <picture v-if="item.tipo === 'cane'">
             <source media="(min-width: 1024px)" srcset="../assets/cane.svg">
             <img src="../assets/cane.svg" :alt="item.tipo">
@@ -17,62 +12,59 @@
             <source media="(min-width: 1024px)" srcset="../assets/gatto.svg">
             <img src="../assets/gatto.svg" :alt="item.tipo">
           </picture>
-          <span>
-            {{item.tipo}}
-          </span>
-          <h3>{{item.proprietario}}</h3>
-          <div>
+
+        <h3>{{item.proprietario}}</h3>
             <span>
               {{item.data}}, {{item.ora}}
             </span>
-          </div>
-          <strong>
-            {{item.motivo}}
-          </strong>
-          <router-link :to="{ name: 'Detail', params: { id: item.id } }" >  dettaglio </router-link>
-        </li>
-        <li v-for="item in animals" v-bind:key="item.id" v-if="filter === 'visitati' && item.visitato">
-          <picture v-if="item.tipo === 'cane'">
-            <source media="(min-width: 1024px)" srcset="../assets/cane.svg">
-            <img src="../assets/cane.svg" :alt="item.tipo">
-          </picture>
-          <picture v-else>
-            <source media="(min-width: 1024px)" srcset="../assets/gatto.svg">
-            <img src="../assets/gatto.svg" :alt="item.tipo">
-          </picture>
+        </div>
+
+        <section class="detail__info__section">
           <span>
-            {{item.tipo}}
+            Motivo visita:
           </span>
-          <h3>{{item.proprietario}}</h3>
-          <div>
-            <span>
-              {{item.data}}, {{item.ora}}
-            </span>
-          </div>
           <strong>
             {{item.motivo}}
           </strong>
-          <router-link :to="{ name: 'Detail', params: { id: item.id } }" >  dettaglio </router-link>
-        </li>
-      </ul>
+        </section>
+
+
+        <section class="detail__info__section">
+          <span>
+            Diagnosi:
+          </span>
+          <strong>
+            {{item.diagnosi}}
+          </strong>
+        </section>
+
+
+        <section class="detail__info__section">
+          <span>
+            Note:
+          </span>
+          <strong>
+            {{item.note}}
+          </strong>
+        </section>
 
     </section>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'section',
+  name: 'detail',
   data () {
     return {
       animals: this.$root.$data.animals,
       additional: this.$root.$data.additional,
-      filter: 0
+      detailID: 0,
+      detail: {}
     }
   },
   created () {
-    this.filter = this.$route.params.filter
+    this.detailID = this.$route.params.id
   },
   computed: {
     title: function () {
@@ -80,20 +72,6 @@ export default {
         return 'Animali in visita'
       } else {}
       return 'Animali visitati'
-    },
-    filteredAnimals: function () {
-      let formatted = []
-
-      this.animals.map(function (value, key) {
-        if (this.filter === 'in-visita' && !value.visitato) {
-          formatted.push(value)
-        } else if (this.filter === 'visitato' && value.visitato) {
-          formatted.push(value)
-        } else {
-          formatted.push(value)
-        }
-      })
-      return formatted
     }
   }
 }
@@ -105,52 +83,37 @@ export default {
 $break-small: 320px;
 $break-large: 1024px;
 
-.section {
+.detail {
   &__info {
-    height: 60px;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    h1 {
-      color:  #ffffff;
-      font-size: 35.79px;/* Approssimazione dovuta alla sostituzione dei font */
-      font-weight: 100;
-      text-align: center;
-      margin:0px;
-    }
-    h2 {
-      color:  #ffffff;
-      font-size: 14.79px;/* Approssimazione dovuta alla sostituzione dei font */
-      font-weight: 100;
-      text-align: center;
-      margin:0px;
-    }
-  }
-  &__list {
-    ul {
-      display: flex;
+          display: flex;
       flex-direction: column;
       align-items: center;
       padding: 60px 0;
-      li {
-      border-radius: 5px;
+      > h1 {
+      color: #ffffff;
+          font-size: 35.79px;
+          font-weight: 100;
+          text-align: center;
+          margin-top: 0px;
+      }
+      &__box {
+         border-radius: 5px;
       background-color:  #ffffff;
       min-width: 248px;
       display: flex;
       flex-direction: column;
       width: 75%;
-      min-height: 201px;
+          height: 93px;
+    min-height: 93px;
       box-shadow: 0px 9px 22.56px 1.44px rgba(0, 0, 0, 0.17);
           overflow: visible;
       position: relative;
         > picture {
-          width: 100px;
-          height: 133px;
-          position: absolute;
-          top: -16px;
-          left: -15px;
+width: 100px;
+    height: 133px;
+    position: absolute;
+    top: -130px;
+    left: -15px;
           > img {
             width: 100%;
             height: auto;
@@ -162,7 +125,8 @@ $break-large: 1024px;
           font-size: 17.79px;/* Approssimazione dovuta alla sostituzione dei font */
           font-weight: 100;
           text-align: left;
-              padding-left: 130px;
+    padding-left: 0px;
+    text-align: center;
     padding-top: 10px;
         }
         > h3 {
@@ -170,7 +134,8 @@ $break-large: 1024px;
           font-size: 23.79px;/* Approssimazione dovuta alla sostituzione dei font */
           font-weight: 100;
           text-align: left;
-          padding-left: 130px;
+    padding-left: 0px;
+    text-align: center;
           margin: 0px;
           padding-top: 10px;
         }
@@ -216,18 +181,38 @@ $break-large: 1024px;
           margin-bottom:22px;
         }
       }
-    }
+      &__section {
+        border-top: thin solid #6c6d8c;
+        margin-top: 50px; padding-top: 50px;
+        padding-left: 5px; padding-right: 5px;
+        width:80%;
+        > span {
+          color:  #6c6d8c;
+          font-size: 17.79px;/* Approssimazione dovuta alla sostituzione dei font */
+          font-weight: 100;
+          text-align: left;
+          display: block;
+          width:100%
+        }
+        > strong {
+          color:  #6c6d8c;
+          font-size: 13.79px;/* Approssimazione dovuta alla sostituzione dei font */
+          font-weight: 400;
+          text-align: left;
+          display: block;
+          width:100%;
+        }
+      }
   }
-
 }
+
 
  @media screen and (min-width: $break-large) {
 
-  .section {
-
-    &__list {
-        ul {
-          li {
+  .detail {
+&__info
+  {
+          &__box {
           width: 623px;
           height: 52px;
           min-height: 52px;
@@ -269,8 +254,6 @@ $break-large: 1024px;
           }
           }
         }
-
-    }
 
   }
 
