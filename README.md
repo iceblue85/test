@@ -1,6 +1,6 @@
-# app
+# clinica veterinaria
 
-> A Vue.js project
+> test project
 
 ## Build Setup
 
@@ -17,5 +17,7 @@ npm install
 # creating localhost
 npm run dev
 
+# visual folder
+/visuals
 
 ```

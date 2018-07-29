@@ -13,9 +13,21 @@
             <source media="(min-width: 1024px)" srcset="../assets/cane.svg">
             <img src="../assets/cane.svg" :alt="item.tipo">
           </picture>
-          <picture v-else>
+          <picture v-else-if="item.tipo === 'gatto'">
             <source media="(min-width: 1024px)" srcset="../assets/gatto.svg">
             <img src="../assets/gatto.svg" :alt="item.tipo">
+          </picture>
+          <picture v-else-if="item.tipo === 'uccello'">
+            <source media="(min-width: 1024px)" srcset="../assets/uccello.svg">
+            <img src="../assets/uccello.svg" :alt="item.tipo">
+          </picture>
+          <picture v-else-if="item.tipo === 'topo'">
+            <source media="(min-width: 1024px)" srcset="../assets/topo.svg">
+            <img src="../assets/topo.svg" :alt="item.tipo">
+          </picture>
+          <picture v-else-if="item.tipo === 'pesce'">
+            <source media="(min-width: 1024px)" srcset="../assets/pesce.svg">
+            <img src="../assets/pesce.svg" :alt="item.tipo">
           </picture>
           <span>
             {{item.tipo}}
@@ -36,9 +48,21 @@
             <source media="(min-width: 1024px)" srcset="../assets/cane.svg">
             <img src="../assets/cane.svg" :alt="item.tipo">
           </picture>
-          <picture v-else>
+          <picture v-else-if="item.tipo === 'gatto'">
             <source media="(min-width: 1024px)" srcset="../assets/gatto.svg">
             <img src="../assets/gatto.svg" :alt="item.tipo">
+          </picture>
+          <picture v-else-if="item.tipo === 'uccello'">
+            <source media="(min-width: 1024px)" srcset="../assets/uccello.svg">
+            <img src="../assets/uccello.svg" :alt="item.tipo">
+          </picture>
+          <picture v-else-if="item.tipo === 'topo'">
+            <source media="(min-width: 1024px)" srcset="../assets/topo.svg">
+            <img src="../assets/topo.svg" :alt="item.tipo">
+          </picture>
+          <picture v-else-if="item.tipo === 'pesce'">
+            <source media="(min-width: 1024px)" srcset="../assets/pesce.svg">
+            <img src="../assets/pesce.svg" :alt="item.tipo">
           </picture>
           <span>
             {{item.tipo}}

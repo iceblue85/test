@@ -44,8 +44,118 @@ new Vue({
           data: '13 maggio 2018',
           ora: '18:00',
           motivo: 'infarto',
+          visitato: true,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 4,
+          tipo: 'cane',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
           visitato: false,
           diagnosi: '',
+          note: ''
+        },
+        {
+          id: 5,
+          tipo: 'cane',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: true,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 6,
+          tipo: 'topo',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: false,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 7,
+          tipo: 'topo',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: false,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 8,
+          tipo: 'uccello',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: true,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 9,
+          tipo: 'gatto',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: true,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 10,
+          tipo: 'pesce',
+          proprietario: 'Mario Rossi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: false,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 11,
+          tipo: 'topo',
+          proprietario: 'Matteo Renzi',
+          data: '13 maggio 2018',
+          ora: '18:00',
+          motivo: 'infarto',
+          visitato: false,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 12,
+          tipo: 'uccello',
+          proprietario: 'Matteo Salvini',
+          data: '13 maggio 2018',
+          ora: '12:00',
+          motivo: 'infarto',
+          visitato: false,
+          diagnosi: '',
+          note: ''
+        },
+        {
+          id: 13,
+          tipo: 'pesce',
+          proprietario: 'Luigi Di Maio',
+          data: '14 agosto 2018',
+          ora: '15:00',
+          motivo: 'ischemia',
+          visitato: true,
+          diagnosi: 'salvato',
           note: ''
         }
       ],
